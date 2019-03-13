@@ -1,0 +1,42 @@
+<button nz-button
+        (click)="navigateBack()"
+        class="browseback"
+        nzType="primary">
+  <i nz-icon
+     type="left"></i>
+  Teams
+</button>
+
+<div class="row">
+  <div class="col-sm-3"
+       *ngFor="let player of roster">
+    <nz-card class="cardbox"
+             nzTitle="{{player?.person?.displayName}}">
+      <p>
+        <strong>
+          Unit:
+        </strong>
+        {{player.unit}}
+      </p>
+      <p>
+        <strong>
+          Position:
+        </strong>
+        {{player.position}}
+      </p>
+      <p>
+        <strong>
+          Depth Order:
+        </strong>
+        {{player.depthOrder}}
+      </p>
+
+      <button (click)="navigatePlayer(player)"
+              nz-button
+              nzType="primary"
+              nzBlock>
+        Details
+      </button>
+    </nz-card>
+  </div>
+</div>

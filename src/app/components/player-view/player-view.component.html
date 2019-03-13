@@ -1,0 +1,106 @@
+<button nz-button
+        (click)="navigateBack()"
+        class="browseback"
+        nzType="primary">
+  <i nz-icon
+     type="left"></i>
+  Roster
+</button>
+
+
+
+<br><br>
+
+<nz-card style="width:300px;"
+         [nzActions]="[actionEdit]">
+  <nz-card-meta nzTitle="{{player?.person?.displayName}}"
+                [nzAvatar]="avatarTemplate">
+  </nz-card-meta> <br>
+  <p>
+    <strong>
+      Unit:
+    </strong>
+    {{player.unit}}
+  </p>
+  <p>
+    <strong>
+      Position:
+    </strong>
+    {{player.position}}
+  </p>
+  <p>
+    <strong>
+      Depth Order:
+    </strong>
+    {{player.depthOrder}}
+  </p>
+
+</nz-card>
+<ng-template #avatarTemplate>
+  <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+</ng-template>
+<ng-template #actionEdit>
+  <i nz-icon
+     (click)="open()"
+     type="edit"></i>
+</ng-template>
+
+
+
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px' }"
+           [nzMaskClosable]="false"
+           [nzWidth]="720"
+           [nzVisible]="visible"
+           nzTitle="Edit Player"
+           (nzOnClose)="close()">
+  <div nz-form>
+    <div class="row">
+      <div class="col-sm-6">
+        <nz-form-item>
+          <nz-form-label>Name</nz-form-label>
+          <nz-form-control>
+            <input nz-input
+                   [(ngModel)]="playerCopy.person.displayName">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-sm-6">
+        <nz-form-item>
+          <nz-form-label>Unit</nz-form-label>
+          <nz-form-control>
+            <input nz-input
+                   [(ngModel)]="playerCopy.unit">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-sm-6">
+        <nz-form-item>
+          <nz-form-label>Position</nz-form-label>
+          <nz-form-control>
+            <input nz-input
+                   [(ngModel)]="playerCopy.position">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-sm-6">
+        <nz-form-item>
+          <nz-form-label>Depth Order</nz-form-label>
+          <nz-form-control>
+            <input nz-input
+                   type="number"
+                   [(ngModel)]="playerCopy.depthOrder">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <button type="button"
+            (click)="cancel()"
+            class="ant-btn"
+            style="margin-right: 8px;"><span>Cancel</span></button>
+    <button type="button"
+            (click)="submit()"
+            class="ant-btn ant-btn-primary"><span>Submit</span></button>
+  </div>
+</nz-drawer>

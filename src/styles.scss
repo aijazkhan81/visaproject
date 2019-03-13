@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Some of the styles are for ant design library, this is deliberately added here, or in component level, viewEncapsulation None should have been done
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ant-card-head {
+    padding: 0 10px;
+}
+
+.ant-card-body {
+    padding: 10px;
+}
+
+.cardbox {
+    margin: 10px 0;
+    button {
+        cursor: pointer;
+    }
+}
+
+.pl0 {
+    padding-left: 0;
+}
+
+.browseback {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
